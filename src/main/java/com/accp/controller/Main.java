@@ -11,9 +11,11 @@ public class Main {
 	public String tologin(){
 		return "main/datatable";
 	}
+
 	@RequestMapping("/main")
 	public String main(){
 		return "main/main";
 	}
+
 
 }
