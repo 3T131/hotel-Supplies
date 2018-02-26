@@ -8,7 +8,7 @@ public class Passenger {
     private int id ; //'旅客ID',
     private int papersID; //'证件ID',
     private int educationDegreeID; //'文化程度ID',
-    private int genderID; //'性别ID',
+   // private int genderID; //'性别ID',
     private int passengerLevelID; //'旅客级别ID',
     private int nationID; //'民族ID',
     private int thingReasonID; //'事由',
@@ -23,6 +23,15 @@ public class Passenger {
     private String whereToGo; //'到哪里去',
     private String contactPhoneNumber; //'联系电话',
     private String remarks; //'备注',
+    private AttributeDetails gender; //性别
+
+    public AttributeDetails getGender() {
+        return gender;
+    }
+
+    public void setGender(AttributeDetails gender) {
+        this.gender = gender;
+    }
 
     public int getId() {
         return id;
@@ -48,13 +57,7 @@ public class Passenger {
         this.educationDegreeID = educationDegreeID;
     }
 
-    public int getGenderID() {
-        return genderID;
-    }
 
-    public void setGenderID(int genderID) {
-        this.genderID = genderID;
-    }
 
     public int getPassengerLevelID() {
         return passengerLevelID;
