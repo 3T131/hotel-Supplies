@@ -5,7 +5,7 @@ package com.accp.entity;
  */
 public class Passenger {
 
-    private int id ; //'旅客ID',
+    private int passengerId; //'旅客ID',
     private int papersID; //'证件ID',
     private int educationDegreeID; //'文化程度ID',
    // private int genderID; //'性别ID',
@@ -33,12 +33,14 @@ public class Passenger {
         this.gender = gender;
     }
 
-    public int getId() {
-        return id;
+
+
+    public int getPassengerId() {
+        return passengerId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPassengerId(int passengerId) {
+        this.passengerId = passengerId;
     }
 
     public int getPapersID() {

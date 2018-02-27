@@ -3,15 +3,15 @@ package com.accp.entity;
  * 属性表
  */
 public class Attribute {
-    private int id; //'属性ID',
+    private int attributeId; //'属性ID',
     private String attributeName; //'属性名称',
 
-    public int getId() {
-        return id;
+    public int getAttributeId() {
+        return attributeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAttributeId(int attributeId) {
+        this.attributeId = attributeId;
     }
 
     public String getAttributeName() {

@@ -4,18 +4,19 @@ package com.accp.entity;
  */
 public class Commodity {
 
-    private int id; //'商品ID',
+    private int commodityId; //'商品ID',
     private int commodityTypeID; //'商品类别ID',
     private int uOMID; //'计量单位ID',
     private String commodityName; //'商品名称',
     private Float salePrice; //'销售价格',
+    private AttributeDetails commodityType;//商品类别
 
-    public int getId() {
-        return id;
+    public int getCommodityId() {
+        return commodityId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCommodityId(int commodityId) {
+        this.commodityId = commodityId;
     }
 
     public int getCommodityTypeID() {

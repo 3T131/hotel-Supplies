@@ -4,17 +4,17 @@ package com.accp.entity;
 /**
  * z住宿登记明细表
  */
-public class StayregisterDetails {
-    private int id;  // '住宿登记明细id'
+public class StayRegisterDetails {
+    private int stayRegisterDetailsId;  // '住宿登记明细id'
     private int stayRegisterID ;//'住宿登记id'
     private int passengerID;// '旅客id'
 
     public int getId() {
-        return id;
+        return stayRegisterDetailsId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.stayRegisterDetailsId = id;
     }
 
     public int getStayRegisterID() {

@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class ReceiveTarget {
 
-    private int id; //'接待对象ID',
+    private int receiveTargetId; //'接待对象ID',
     private int targetTypeID; //'对象类别ID',
     private String principal; //'负责人',
     private String teamName; //'团队名称',
@@ -17,12 +17,12 @@ public class ReceiveTarget {
     private String contactPhoneNUmber; //'联系电话',
 
 
-    public int getId() {
-        return id;
+    public int getReceiveTargetId() {
+        return receiveTargetId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setReceiveTargetId(int receiveTargetId) {
+        this.receiveTargetId = receiveTargetId;
     }
 
     public int getTargetTypeID() {

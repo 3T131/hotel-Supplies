@@ -4,7 +4,7 @@ package com.accp.entity;
  * 房间表
  */
 public class Room {
-    private int id ; //'房间id',
+    private int roomId; //'房间id',
     private int guestRoomLevelID ; //'客房等级ID',
     private int roomStateID ; //'房态ID',
     private String roomNumber ; //'房间号',
@@ -15,12 +15,12 @@ public class Room {
     private String firstDuration ; //'首段时长（小时）',
     private Float firstPrice ; //'首段价格',
 
-    public int getId() {
-        return id;
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
     public int getGuestRoomLevelID() {

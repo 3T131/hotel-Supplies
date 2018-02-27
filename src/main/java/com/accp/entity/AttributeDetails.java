@@ -4,16 +4,17 @@ package com.accp.entity;
  */
 
 public class AttributeDetails {
-    private int id; //'属性明细ID',
+    private int attributeDetailsId; //'属性明细ID',
     private int attributeID; //'属性ID',
     private String attributeDetailsName; //'属性明细名称',
+    private Attribute attributeName;//属性名
 
-    public int getId() {
-        return id;
+    public int getAttributeDetailsId() {
+        return attributeDetailsId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAttributeDetailsId(int attributeDetailsId) {
+        this.attributeDetailsId = attributeDetailsId;
     }
 
     public int getAttributeID() {

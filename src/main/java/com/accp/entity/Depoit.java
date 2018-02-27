@@ -6,14 +6,14 @@ import java.util.Date;
  */
 public class Depoit {
 
-    private int id;
+    private int depoitId;
 
-    public int getId() {
-        return id;
+    public int getDepoitId() {
+        return depoitId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDepoitId(int depoitId) {
+        this.depoitId = depoitId;
     }
 
     public int getStayRegisterID() {

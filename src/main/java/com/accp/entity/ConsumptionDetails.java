@@ -5,19 +5,19 @@ import java.util.Date;
  */
 public class ConsumptionDetails {
 
-    private int id; //'消费明细ID',
+    private int consumptionDetailsId; //'消费明细ID',
     private int stayRegisterID; //'住宿登记ID',
     private int commodityID; //'商品ID',
     private String consumptionNumber; //'消费数量',
     private Float consumptionMoney; //'消费金额',
     private Date consumptionTime; //'消费时间',
 
-    public int getId() {
-        return id;
+    public int getConsumptionDetailsId() {
+        return consumptionDetailsId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setConsumptionDetailsId(int consumptionDetailsId) {
+        this.consumptionDetailsId = consumptionDetailsId;
     }
 
     public int getStayRegisterID() {
