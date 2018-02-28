@@ -8,8 +8,8 @@ public class Passenger {
     private int passengerId; //'旅客ID',
     private int papersID; //'证件ID',
     private int educationDegreeID; //'文化程度ID',
-   // private int genderID; //'性别ID',
-    private int passengerLevelID; //'旅客级别ID',
+    private int genderID; //'性别ID',
+   private int passengerLevelID; //'旅客级别ID',
     private int nationID; //'民族ID',
     private int thingReasonID; //'事由',
     private String name; //'姓名',
@@ -23,18 +23,70 @@ public class Passenger {
     private String whereToGo; //'到哪里去',
     private String contactPhoneNumber; //'联系电话',
     private String remarks; //'备注',
-    private AttributeDetails gender; //性别
 
-    public AttributeDetails getGender() {
-        return gender;
+
+    private String genderName;//性别
+    private String nationName;//民族
+    private String passengerLevelName;//'旅客级别
+    private String papersName;////'证件ID',
+    private String thingReasonName;//'事由',
+    private String educationDegreeName;//文化程度
+
+    public String getThingReasonName() {
+        return thingReasonName;
     }
 
-    public void setGender(AttributeDetails gender) {
-        this.gender = gender;
+    public void setThingReasonName(String thingReasonName) {
+        this.thingReasonName = thingReasonName;
     }
 
+    public String getEducationDegreeName() {
+        return educationDegreeName;
+    }
 
+    public void setEducationDegreeName(String educationDegreeName) {
+        this.educationDegreeName = educationDegreeName;
+    }
 
+    public int getGenderID() {
+        return genderID;
+    }
+
+    public void setGenderID(int genderID) {
+        this.genderID = genderID;
+    }
+
+    public String getGenderName() {
+        return genderName;
+    }
+
+    public void setGenderName(String genderName) {
+        this.genderName = genderName;
+    }
+
+    public String getNationName() {
+        return nationName;
+    }
+
+    public void setNationName(String nationName) {
+        this.nationName = nationName;
+    }
+
+    public String getPassengerLevelName() {
+        return passengerLevelName;
+    }
+
+    public void setPassengerLevelName(String passengerLevelName) {
+        this.passengerLevelName = passengerLevelName;
+    }
+
+    public String getPapersName() {
+        return papersName;
+    }
+
+    public void setPapersName(String papersName) {
+        this.papersName = papersName;
+    }
     public int getPassengerId() {
         return passengerId;
     }
