@@ -20,7 +20,7 @@ public class StayRegister {
     private Date payTime; //结账时间
     private Date changRoomTime; //换房时间
     private Integer remind; //提醒结账
-    private Integer LvKeLeiXingId; //提醒结账
+
 
 // --------------------------------------
     private Integer predetermineID;  //预定表ID
@@ -30,7 +30,7 @@ public class StayRegister {
     private Integer billUnitID;//结账单位ID
     private Integer receiveTargetID;//接待对象ID
     private Integer passengerTypeID;//旅客类型ID
-    private Integer isBillID;//是否结账ID
+    private Integer isBillID=68;//是否结账ID
 
     /*-------------------------------------------------------*/
     private Predetermine predetermine;  //预定表
@@ -42,6 +42,34 @@ public class StayRegister {
     private String payWay;//结账方式
     private String billUnit;//结账单位
     private String rentOutType;//出租方式
+
+    private String passengerName;//旅客姓名
+    private String roomNumber;//房间号
+    private Integer LvKeLeiXingId=55; //旅客类型
+
+    public String getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public String getPassengerName() {
+        return passengerName;
+    }
+
+    public void setPassengerName(String passengerName) {
+        this.passengerName = passengerName;
+    }
+
+    public Integer getLvKeLeiXingId() {
+        return LvKeLeiXingId;
+    }
+
+    public void setLvKeLeiXingId(Integer lvKeLeiXingId) {
+        LvKeLeiXingId = lvKeLeiXingId;
+    }
 
     private List<Passenger> passengerList=new ArrayList<Passenger>();//旅客集合
 
@@ -133,13 +161,6 @@ public class StayRegister {
         this.remind = remind;
     }
 
-    public Integer getLvKeLeiXiId() {
-        return LvKeLeiXingId;
-    }
-
-    public void setLvKeLeiXiId(Integer LvKeLeiXingId) {
-        this.LvKeLeiXingId = LvKeLeiXingId;
-    }
 
     public Integer getPredetermineID() {
         return predetermineID;

@@ -5,16 +5,8 @@
 <mapper namespace="com.accp.dao.StayRegisterDao">
 
 
-    <select id="listByParam" resultMap="StayRegisterMap">
-      SELECT stayregister.*,Predetermine.*,ReceiveTarget.*,room.*
-            ,rentOutType.attributeDetailsName rentOutType
-            ,payWay.attributeDetailsName payWay
-            ,billunit.attributeDetailsName billunit
-            ,passengerType.attributeDetailsName passengerType
-            ,isBillON.attributeDetailsName isBill
-               ,passenger.*
-      FROM stayregister
-            LEFT JOIN  Predetermine ON stayregister.Predetermineid=Predetermine.Predetermineid
+    <sql id="JOINwhere">
+          LEFT JOIN  Predetermine ON stayregister.Predetermineid=Predetermine.Predetermineid
             INNER JOIN  ReceiveTarget ON stayregister.receiveTargetId=ReceiveTarget.ReceiveTargetid
             INNER JOIN  room ON stayregister.roomId=room.roomid
             INNER JOIN  attributedetails rentOutType ON stayregister.rentOutTypeID=rentOutType.AttributeDetailsid
@@ -24,17 +16,42 @@
             INNER JOIN  attributedetails isBillON ON stayregister.isBillID=isBillON.AttributeDetailsid
               LEFT JOIN StayRegisterDetails ON StayRegisterDetails.stayRegisterID=stayregister.stayRegisterID
              LEFT JOIN passenger ON StayRegisterDetails.passengerID=passenger.pId
-      <where>
-          <if test="isBillID!=null and isBillID>0  ">
-              and stayregister.isBillID=#{isBillID}
-          </if>
-          <if test="LvKeLeiXingId!=null and LvKeLeiXingId>0">
-              and stayregister.LvKeLeiXingId=#{LvKeLeiXingId}
-          </if>
-      </where>
+        <where>
+            <if test="params.LvKeLeiXingId!=null ">
+                and stayregister.LvKeLeiXingId=#{params.LvKeLeiXingId}
+            </if>
+            <if test="params.roomNumber!=null and params.roomNumber!='' ">
+                and room.roomNumber LIKE concat('%',#{params.roomNumber},'%')
+            </if>
+            <if test="params.isBillID!=null ">
+                and stayregister.isBillID=#{params.isBillID}
+            </if>
+            <if test="params.passengerName!=null and params.passengerName!=''">
+                and passenger.name LIKE  CONCAT('%',#{params.passengerName},'%')
+            </if>
+        </where>
+    </sql>
 
+    <select id="listByParam" resultMap="StayRegisterMap">
+      SELECT stayregister.*,Predetermine.*,ReceiveTarget.*,room.*
+            ,rentOutType.attributeDetailsName rentOutType
+            ,payWay.attributeDetailsName payWay
+            ,billunit.attributeDetailsName billunit
+            ,passengerType.attributeDetailsName passengerType
+            ,isBillON.attributeDetailsName isBill
+               ,passenger.*
+      FROM stayregister
+          <include refid="JOINwhere"/>
      order by stayregister.remind desc
+        limit #{qis},#{pageSize}
     </select>
+
+    <select id="totalRow" resultType="int">
+        SELECT count(1)  FROM stayregister
+        <include refid="JOINwhere"/>
+    </select>
+
+
 
 
 
