@@ -3,22 +3,52 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.accp.dao.PassengerDao">
-    <!--`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '旅客ID',-->
-    <!--`papersID` INT(11) DEFAULT NULL COMMENT '证件ID',-->
-    <!--`educationDegreeID` INT(11) DEFAULT NULL COMMENT '文化程度ID',-->
-    <!--`genderID` INT(11) DEFAULT NULL COMMENT '性别ID',-->
-    <!--`passengerLevelID` INT(11) DEFAULT NULL COMMENT '旅客级别ID',-->
-    <!--`nationID` INT(11) DEFAULT NULL COMMENT '民族ID',-->
-<!--<resultMap id="listMap" type="Passenger">-->
-    <!--<id property="" column=""/>-->
-    <!--<result property="" column=""/>-->
-    <!--<association property="gender"  javaType="AttributeDetails">-->
-        <!--<id property="id" column="g_id"/>-->
-        <!--<result property=""column=""/>-->
+    <resultMap id="listMap" type="Passenger">
+        <id property="passengerId" column="passengerId"/>
+        <result property="genderName" column="genderName"/>
+        <result property="nationName" column="nationName"/>
+        <result property="passengerLevelName" column="passengerLevelName"/>
+        <result property="papersName" column="papersName"/>
+        <result property="thingReasonName" column="thingReasonName"/>
+        <result property="educationDegreeName" column="educationDegreeName"/>
+    </resultMap>
+    <sql id="queryPassenger">
+          SELECT passenger.*,
+        gender.attributeDetailsName genderName,
+        nation.attributeDetailsName nationName,
+        passengerLevel.attributeDetailsName passengerLevelName,
+        papers.attributeDetailsName papersName,
+          thingReasonName.attributeDetailsName thingReasonName,
+            educationDegreeName.attributeDetailsName educationDegreeName
+        FROM passenger
+        INNER JOIN attributedetails gender ON passenger.genderid=gender.attributedetailsId
+        INNER JOIN attributedetails nation ON passenger.nationid=nation.attributedetailsId
+        INNER JOIN attributedetails passengerLevel ON passenger.passengerlevelid=passengerLevel.attributedetailsId
+        INNER JOIN attributedetails papers ON passenger.papersid=papers.attributedetailsId
+         INNER JOIN attributedetails thingReasonName ON passenger.genderid=thingReasonName.attributedetailsId
+        INNER JOIN attributedetails educationDegreeName ON passenger.nationid=educationDegreeName.attributedetailsId
+    </sql>
+    <select id="list" resultMap="listMap">
+        <include refid="queryPassenger"></include>
+        <where>
+            <if test="name!=null and name!=''">
+                and name like concat('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+    <insert id="add">
 
-    <!--</association>-->
-<!--</resultMap>-->
-<!--<select id="list" resultMap="listMap">-->
+    </insert>
+    <delete id="delete" parameterType="java.lang.String">
+        		DELETE  FROM passenger WHERE passengerId IN
+        		<foreach collection="array" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
 
-<!--</select>-->
+    </delete>
+    <select id="queryPassengerId" resultMap="listMap">
+     <include refid="queryPassenger"></include>
+        WHERE passengerid=#{passengerId}
+
+    </select>
 </mapper>

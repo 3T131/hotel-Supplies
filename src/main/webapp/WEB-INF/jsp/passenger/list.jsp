@@ -75,7 +75,7 @@
 	    <div class="row-fluid">
 		    <label class="labelroomnumber">旅客名称：</label>
 		    <form action="${ctx}/Passenger/tolist.do" method="post" style="float: left;">
-			   <input id="txtnameid" name="txtname" class="textone roomnumberwidth" style="border-radius:0px; border-top-left-radius:4px; border-bottom-left-radius:4px;height:26px;" type="text" placeholder="请输入关键字" value="${txtname}">
+			   <input id="txtnameid" name="name" class="textone roomnumberwidth" style="border-radius:0px; border-top-left-radius:4px; border-bottom-left-radius:4px;height:26px;" type="text" placeholder="请输入关键字" value="${name}">
 			   <div class="input-append">  
 			      <button type="submit" class="btn-success textone" style="margin-left:-4px;height:26px;"><li class="icon-search icon-white"></li>搜索</button>
 			   </div>
@@ -85,7 +85,7 @@
     <div class="span6">
       <div class="row-fluid">
        <div class="span3">
-         <button class="btn btn-info btn-small textone" type="button" onclick="addfunction()"><li class="icon-plus icon-white"></li>新增</button>
+         <button class="btn btn-info btn-small textone" type="button" onclick="location='/Passenger/toadd.do'"><li class="icon-plus icon-white"></li>新增</button>
        </div>
        <div class="span3">
          <button class="btn btn-warning btn-small textone" type="button" onclick="updatefunction()"><li class="icon-pencil icon-white"></li>修改</button>
@@ -112,9 +112,9 @@
 	        </tr>
 	      </thead>
 	      <tbody id="tbody">
-	        <c:forEach items="${list.result}" var="item">
+	        <c:forEach items="${list}" var="item">
 		        <tr>
-		          <td><input type="checkbox" name="id" value="${item.id}"></td>
+		          <td><input type="checkbox" name="id" value="${item.passengerId}"></td>
 		          <td>${item.name}</td>
 		          <td>${item.genderName}</td>
 		          <td>${item.birthDate}</td>
@@ -142,14 +142,14 @@
  
  <script type="text/javascript">
   /* 分页要用的 */
-  $(".tcdPageCode").createPage({
-     pageCount:${list.totalPage},
-     current:${list.currentPage},
-     backFn:function(p){
-     var txtname=document.getElementById("txtnameid").value;
-     location.href="${ctx}/Passenger/tolist.do?currentPage="+p+"&txtname="+txtname;
-     }
-   });
+  <%--$(".tcdPageCode").createPage({--%>
+     <%--pageCount:${list.totalPage},--%>
+     <%--current:${list.currentPage},--%>
+     <%--backFn:function(p){--%>
+     <%--var txtname=document.getElementById("txtnameid").value;--%>
+     <%--location.href="${ctx}/Passenger/tolist.do?currentPage="+p+"&txtname="+txtname;--%>
+     <%--}--%>
+   <%--});--%>
   
  </script>
    
