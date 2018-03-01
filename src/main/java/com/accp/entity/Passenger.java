@@ -5,84 +5,73 @@ package com.accp.entity;
  */
 public class Passenger {
 
-    private int passengerId; //'旅客ID',
-    private int papersID; //'证件ID',
-    private int educationDegreeID; //'文化程度ID',
-   // private int genderID; //'性别ID',
-    private int passengerLevelID; //'旅客级别ID',
-    private int nationID; //'民族ID',
-    private int thingReasonID; //'事由',
+    private Integer pId; //'旅客ID',
+    private Integer papersID; //'证件ID',
+    private Integer genderID; //'性别ID',
+    private Integer passengerLevelID; //'旅客级别ID',
+    private Integer nationID; //'民族ID',
     private String name; //'姓名',
     private String papersNumber; //'证件号码',
     private String birthDate; //'出生日期',
-    private String licenceIssuingAuthorty; //'发证机关',
-    private String unitsOrAddress; //'单位或住址',
     private String papersValidity; //'证件有效期',
-    private String profession; //'职业',
-    private String whereAreFrom; //'从何处来',
-    private String whereToGo; //'到哪里去',
-    private String contactPhoneNumber; //'联系电话',
+    private String phoneNumber; //'联系电话',
     private String remarks; //'备注',
-    private AttributeDetails gender; //性别
 
-    public AttributeDetails getGender() {
-        return gender;
+    @Override
+    public String toString() {
+        return "Passenger{" +
+                "passengerId=" + pId +
+                ", papersID=" + papersID +
+                ", genderID=" + genderID +
+                ", passengerLevelID=" + passengerLevelID +
+                ", nationID=" + nationID +
+                ", name='" + name + '\'' +
+                ", papersNumber='" + papersNumber + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", papersValidity='" + papersValidity + '\'' +
+                ", contactPhoneNumber='" + phoneNumber + '\'' +
+                ", remarks='" + remarks + '\'' +
+                '}';
     }
 
-    public void setGender(AttributeDetails gender) {
-        this.gender = gender;
+    public Integer getpId() {
+        return pId;
     }
 
-
-
-    public int getPassengerId() {
-        return passengerId;
+    public void setpId(Integer pId) {
+        this.pId = pId;
     }
 
-    public void setPassengerId(int passengerId) {
-        this.passengerId = passengerId;
-    }
-
-    public int getPapersID() {
+    public Integer getPapersID() {
         return papersID;
     }
 
-    public void setPapersID(int papersID) {
+    public void setPapersID(Integer papersID) {
         this.papersID = papersID;
     }
 
-    public int getEducationDegreeID() {
-        return educationDegreeID;
+    public Integer getGenderID() {
+        return genderID;
     }
 
-    public void setEducationDegreeID(int educationDegreeID) {
-        this.educationDegreeID = educationDegreeID;
+    public void setGenderID(Integer genderID) {
+        this.genderID = genderID;
     }
 
-
-
-    public int getPassengerLevelID() {
+    public Integer getPassengerLevelID() {
         return passengerLevelID;
     }
 
-    public void setPassengerLevelID(int passengerLevelID) {
+    public void setPassengerLevelID(Integer passengerLevelID) {
         this.passengerLevelID = passengerLevelID;
     }
 
-    public int getNationID() {
+    public Integer getNationID() {
         return nationID;
     }
 
-    public void setNationID(int nationID) {
+    public void setNationID(Integer nationID) {
         this.nationID = nationID;
-    }
-
-    public int getThingReasonID() {
-        return thingReasonID;
-    }
-
-    public void setThingReasonID(int thingReasonID) {
-        this.thingReasonID = thingReasonID;
     }
 
     public String getName() {
@@ -109,22 +98,6 @@ public class Passenger {
         this.birthDate = birthDate;
     }
 
-    public String getLicenceIssuingAuthorty() {
-        return licenceIssuingAuthorty;
-    }
-
-    public void setLicenceIssuingAuthorty(String licenceIssuingAuthorty) {
-        this.licenceIssuingAuthorty = licenceIssuingAuthorty;
-    }
-
-    public String getUnitsOrAddress() {
-        return unitsOrAddress;
-    }
-
-    public void setUnitsOrAddress(String unitsOrAddress) {
-        this.unitsOrAddress = unitsOrAddress;
-    }
-
     public String getPapersValidity() {
         return papersValidity;
     }
@@ -133,36 +106,12 @@ public class Passenger {
         this.papersValidity = papersValidity;
     }
 
-    public String getProfession() {
-        return profession;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setProfession(String profession) {
-        this.profession = profession;
-    }
-
-    public String getWhereAreFrom() {
-        return whereAreFrom;
-    }
-
-    public void setWhereAreFrom(String whereAreFrom) {
-        this.whereAreFrom = whereAreFrom;
-    }
-
-    public String getWhereToGo() {
-        return whereToGo;
-    }
-
-    public void setWhereToGo(String whereToGo) {
-        this.whereToGo = whereToGo;
-    }
-
-    public String getContactPhoneNumber() {
-        return contactPhoneNumber;
-    }
-
-    public void setContactPhoneNumber(String contactPhoneNumber) {
-        this.contactPhoneNumber = contactPhoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getRemarks() {

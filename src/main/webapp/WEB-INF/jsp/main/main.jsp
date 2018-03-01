@@ -38,7 +38,7 @@
 
 		<!--inline styles related to this page-->
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
+
 
 	</head>
 
@@ -253,7 +253,7 @@
 				</div>
 
 				<div style="width:100%;height:100%;">
-				  <iframe id="Mainid" src="${ctx}/Main/todata.do" style="width:100%;height:100%;"  frameBorder="0" scrolling="no"></iframe>
+				  <iframe id="Mainid" src="${ctx}/Main/todata.do" style="width:100%;height:100%;"  frameBorder="0"  scrolling="no"></iframe>
 				</div>
 
 				<div class="ace-settings-container" id="ace-settings-container">
@@ -345,12 +345,12 @@
 		<script src="/static/assets/js/jquery.slimscroll.min.js"></script>
 		<script src="/static/assets/js/jquery.easy-pie-chart.min.js"></script>
 		<script src="/static/assets/js/jquery.sparkline.min.js"></script>
-		<script src="/static/assets/js/flot/jquery.flot.min.js"></script>
-		<script src="/static/assets/js/flot/jquery.flot.pie.min.js"></script>
-		<script src="/static/assets/js/flot/jquery.flot.resize.min.js"></script>
-		
-        <script src="/static/assets/js/ace-extra.min.js"></script>
-		
+		<%--<script src="/static/assets/js/flot/jquery.flot.min.js"></script>--%>
+		<%--<script src="/static/assets/js/flot/jquery.flot.pie.min.js"></script>--%>
+		<%--<script src="/static/assets/js/flot/jquery.flot.resize.min.js"></script>--%>
+
+        <%--<script src="/static/assets/js/ace-extra.min.js"></script>--%>
+
 
 		<!--ace scripts-->
 
@@ -411,34 +411,34 @@
 					}
 				 })
 			 }
-			 drawPieChart(placeholder, data);
-			
-			 /**
-			 we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
-			 so that's not needed actually.
-			 */
-			 placeholder.data('chart', data);
-			 placeholder.data('draw', drawPieChart);
-			
+//			 drawPieChart(placeholder, data);
+//
+//			 /**
+//			 we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
+//			 so that's not needed actually.
+//			 */
+//			 placeholder.data('chart', data);
+//			 placeholder.data('draw', drawPieChart);
+//
 			
 			
 			  var $tooltip = $("<div class='tooltip top in hide'><div class='tooltip-inner'></div></div>").appendTo('body');
 			  var previousPoint = null;
-			
-			  placeholder.on('plothover', function (event, pos, item) {
-				if(item) {
-					if (previousPoint != item.seriesIndex) {
-						previousPoint = item.seriesIndex;
-						var tip = item.series['label'] + " : " + item.series['percent']+'%';
-						$tooltip.show().children(0).text(tip);
-					}
-					$tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
-				} else {
-					$tooltip.hide();
-					previousPoint = null;
-				}
-				
-			 });
+//
+//			  placeholder.on('plothover', function (event, pos, item) {
+//				if(item) {
+//					if (previousPoint != item.seriesIndex) {
+//						previousPoint = item.seriesIndex;
+//						var tip = item.series['label'] + " : " + item.series['percent']+'%';
+//						$tooltip.show().children(0).text(tip);
+//					}
+//					$tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
+//				} else {
+//					$tooltip.hide();
+//					previousPoint = null;
+//				}
+//
+//			 });
 			
 			
 			
@@ -461,34 +461,34 @@
 				}
 				
 			
-				var sales_charts = $('#sales-charts').css({'width':'100%' , 'height':'220px'});
-				$.plot("#sales-charts", [
-					{ label: "Domains", data: d1 },
-					{ label: "Hosting", data: d2 },
-					{ label: "Services", data: d3 }
-				], {
-					hoverable: true,
-					shadowSize: 0,
-					series: {
-						lines: { show: true },
-						points: { show: true }
-					},
-					xaxis: {
-						tickLength: 0
-					},
-					yaxis: {
-						ticks: 10,
-						min: -2,
-						max: 2,
-						tickDecimals: 3
-					},
-					grid: {
-						backgroundColor: { colors: [ "#fff", "#fff" ] },
-						borderWidth: 1,
-						borderColor:'#555'
-					}
-				});
-			
+//				var sales_charts = $('#sales-charts').css({'width':'100%' , 'height':'220px'});
+//				$.plot("#sales-charts", [
+//					{ label: "Domains", data: d1 },
+//					{ label: "Hosting", data: d2 },
+//					{ label: "Services", data: d3 }
+//				], {
+//					hoverable: true,
+//					shadowSize: 0,
+//					series: {
+//						lines: { show: true },
+//						points: { show: true }
+//					},
+//					xaxis: {
+//						tickLength: 0
+//					},
+//					yaxis: {
+//						ticks: 10,
+//						min: -2,
+//						max: 2,
+//						tickDecimals: 3
+//					},
+//					grid: {
+//						backgroundColor: { colors: [ "#fff", "#fff" ] },
+//						borderWidth: 1,
+//						borderColor:'#555'
+//					}
+//				});
+//
 			
 				$('#recent-box [data-rel="tooltip"]').tooltip({placement: tooltip_placement});
 				function tooltip_placement(context, source) {

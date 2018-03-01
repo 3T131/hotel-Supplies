@@ -247,6 +247,6 @@
      parent.document.getElementById('Mainid').src='${ctx}/StayRegister/tolist.do';
    }
  </script>
-   
+
   </body>
 </html>

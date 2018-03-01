@@ -2,33 +2,37 @@ package com.accp.entity;
 
 import java.util.Date;
 /**
- * 住宿登记表
+ * 押金表
  */
 public class Depoit {
 
-    private int depoitId;
+    private Integer depoitId;
+    private Integer stayRegisterID; //'住宿登记ID',
+    private Integer payWayID; //'支付方式ID',
+    private Date registerTime; //'登记时间',
+    private Float deposit; //'押金',
 
-    public int getDepoitId() {
+    public Integer getDepoitId() {
         return depoitId;
     }
 
-    public void setDepoitId(int depoitId) {
+    public void setDepoitId(Integer depoitId) {
         this.depoitId = depoitId;
     }
 
-    public int getStayRegisterID() {
+    public Integer getStayRegisterID() {
         return stayRegisterID;
     }
 
-    public void setStayRegisterID(int stayRegisterID) {
+    public void setStayRegisterID(Integer stayRegisterID) {
         this.stayRegisterID = stayRegisterID;
     }
 
-    public int getPayWayID() {
+    public Integer getPayWayID() {
         return payWayID;
     }
 
-    public void setPayWayID(int payWayID) {
+    public void setPayWayID(Integer payWayID) {
         this.payWayID = payWayID;
     }
 
@@ -48,10 +52,7 @@ public class Depoit {
         this.deposit = deposit;
     }
 
-    private int stayRegisterID; //'住宿登记ID',
-    private int payWayID; //'支付方式ID',
-    private Date registerTime; //'登记时间',
-    private Float deposit; //'押金',
+
 
 
 }

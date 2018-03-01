@@ -27,7 +27,7 @@
   <script type="text/javascript" src="/static/js/page.js"></script>
   <script type="text/javascript" src="/static/js/layer/layer.js"></script>
   <script type="text/javascript" src="/static/js/amazeui.min.js"></script>
-  
+	  <script src="/static/js/commodity/list.js"></script>
    <style>
    
    .container{
@@ -188,93 +188,21 @@
 <div/>
 </div>
 <div/>
- 
- 
- <script type="text/javascript">
-   function addfunction(){
-     parent.document.getElementById('Mainid').src='${ctx}/Commodity/toadd.do';
-   }
-   
-   function updatefunction(){
-   var chk_value=[];
-  	$('input[name="id"]:checked').each(function(){
-  		chk_value.push($(this).val());
-  	});
-  	if(chk_value!=""){
-		if(chk_value.toString().indexOf(",")>0){
-		   alert("修改只能选择一条");
-		}else{
-		   parent.document.getElementById("Mainid").src='${ctx}/Commodity/toupdate.do?id='+chk_value;
-		}
-	}else{
-	  alert("请选择一条数据进行修改");
-	}
-  }
-  
-   function deletefunction(){
-   var chk_value=[];
-  	$('input[name="id"]:checked').each(function(){
-  		chk_value.push($(this).val());
-  	});
-  	if(chk_value!=""){
-  	var flag=window.confirm("注意：您确定要永久删除该信息吗?");
-     if(flag){
-  	  parent.document.getElementById("Mainid").src='${ctx}/Commodity/delete.do?id='+chk_value;
-  	}
-  	}else{
-	  alert("请选择一条或多条数据进行删除");
-	}
-	
-  }
-  
-  
-  
-   function selectChange(){
-     var commodityTypeID=document.getElementById("selectCboId").value;
-     parent.document.getElementById('Mainid').src='${ctx}/Commodity/tolist.do?commodityTypeID='+commodityTypeID;
-   }
-  
-   
-   /* 分页要用的 */
-   $(".tcdPageCode").createPage({
-     pageCount:${list.totalPage},
-     current:${list.currentPage},
-     backFn:function(p){
-     var txtname=document.getElementById("txtnameid").value;
-     var commodityTypeID=document.getElementById("selectCboId").value;
-     location.href="${ctx}/Commodity/tolist.do?currentPage="+p+"&txtname="+txtname+"&commodityTypeID="+commodityTypeID;
-     }
-   });
-   
-   function selectFunction(){
-     var txtname=document.getElementById("txtnameid").value;
-     var commodityTypeID=document.getElementById("selectCboId").value;
-     parent.document.getElementById('Mainid').src='${ctx}/Commodity/tolist.do?commodityTypeID='+commodityTypeID+'&txtname='+txtname;
-   }
-   
-   
-   function newaddfunction(){
-   var txtname=document.getElementById("newtxtnameid").value;
-     parent.document.getElementById('Mainid').src='${ctx}/Commodity/newadd.do?txtname='+txtname;
-   }
-   
-   function newdeletefunction(){
-   var chk_value=[];
-  	$('input[name="newid"]:checked').each(function(){
-  		chk_value.push($(this).val());
-  	});
-  	if(chk_value!=""){
-  	var flag=window.confirm("注意：您确定要永久删除该信息吗?");
-     if(flag){
-  	  parent.document.getElementById("Mainid").src='${ctx}/Commodity/newdelete.do?id='+chk_value;
-  	}
-  	}else{
-	  alert("请选择一条或多条数据进行删除");
-	}
-	
-  }
-  
- </script>
-   
+
+		  </div>
+		  </div>
+ </div>
+  <script type="text/javascript">
+      /* 分页要用的 */
+      $(".tcdPageCode").createPage({
+          pageCount:${list.totalPage},
+          current:${list.currentPage},
+          backFn:function(p){
+              var txtname=document.getElementById("txtnameid").value;
+              var commodityTypeID=document.getElementById("selectCboId").value;
+              location.href="${ctx}/Commodity/tolist.do?currentPage="+p+"&txtname="+txtname+"&commodityTypeID="+commodityTypeID;
+          }
+      });
+  </script>
   </body>
 </html>

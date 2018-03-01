@@ -24,6 +24,7 @@
   <script src="/static/bootstrap/js/jquery-3.1.1.min.js"></script>
   <script src="/static/bootstrap/js/bootstrap.js"></script>
   <script type="text/javascript" src="/static/js/page.js"></script>
+	  <script src="/static/js/passenger/list.js"></script>
    <style>
    
    .container{
@@ -140,48 +141,6 @@
  
  
  <script type="text/javascript">
-   function addfunction(){
-     parent.document.getElementById('Mainid').src='${ctx}/Passenger/toadd.do';
-   }
-   
-   function updatefunction(){
-   var chk_value=[];
-  	$('input[name="id"]:checked').each(function(){
-  		chk_value.push($(this).val());
-  	});
-  	if(chk_value!=""){
-		if(chk_value.toString().indexOf(",")>0){
-		   alert("修改只能选择一条");
-		}else{
-		   parent.document.getElementById("Mainid").src='${ctx}/Passenger/toupdate.do?id='+chk_value;
-		}
-	}else{
-	  alert("请选择一条数据进行修改");
-	}
-  }
-  
-   function deletefunction(){
-   var chk_value=[];
-  	$('input[name="id"]:checked').each(function(){
-  		chk_value.push($(this).val());
-  	});
-  	if(chk_value!=""){
-  	var flag=window.confirm("注意：您确定要永久删除该信息吗?");
-     if(flag){
-  	  parent.document.getElementById("Mainid").src='${ctx}/Passenger/delete.do?id='+chk_value;
-  	}
-  	}else{
-	  alert("请选择一条或多条数据进行删除");
-	}
-	
-  }
-  
-  
-  
-  
-   
-   
-   
   /* 分页要用的 */
   $(".tcdPageCode").createPage({
      pageCount:${list.totalPage},

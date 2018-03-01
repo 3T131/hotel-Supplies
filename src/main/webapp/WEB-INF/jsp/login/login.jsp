@@ -45,13 +45,8 @@
         <h4>用户登录</h4>
       </div>
       <div class="modal-body">
-          <form id="form1" class="form-horizontal" action="${ctx}/user/login.do" method="post">
+          <form id="form1" class="form-horizontal" action="${ctx}/Login/tomain.do" method="post">
             <div class="control-group">
-                <c:if test="${error!=null}">
-                    <div class="control-group">
-                        <label class="control-label" style="color: red">${error}</label>
-                    </div>
-                </c:if>
               <label class="control-label">用户名</label>
               <div class="controls">
                 <input name="userName" type="text">

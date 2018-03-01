@@ -4,15 +4,15 @@ package com.accp.entity;
  * 用户表
  */
 public class Users {
-    private int userId;
+    private Integer userId;
     private String userName;
     private String password;
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
