@@ -91,33 +91,42 @@
  
   <body>
   <div class="container" style="height:630px;">
-    
-    <input id="LvKeLeiXingId" type="hidden" value="${LvKeLeiXingId}">
     <input id="tuanDuiId" type="hidden" value="${tuanDui}">
-    
+
+
+	  <form  id="formList" action="${ctx}/StayRegister/tolist.do" style="display: flex;flex-direction: row;margin-left: 25px;align-items: center" method="post" >
+		  <div class="form-group" style="margin-right: 20px;margin-top: 10px;">
+			  <label style="float:left;padding-top: 4px">房间号：</label>
+			  <input  id="roomId" name="roomNumber"  value="${stayRegister.roomNumber}"  type="text" placeholder="请输入关键字" style="height: 30px;">
+		  </div>
+		  <div class="form-group" style="margin-right: 20px;margin-top: 10px;" >
+			  <label style="float:left;padding-top: 4px">旅客：</label>
+			  <input id="passengerName" name="passengerName" value="${stayRegister.passengerName}" style="height: 30px;"  type="text" placeholder="请输入关键字" >
+		  </div>
+		  <div class="form-group" style="margin-right: 20px;margin-top: 10px;">
+			  <select id="isBillID" name="isBillID" onchange="selectChange()" style="width: 100px">
+				  <c:forEach items="${listOne}" var="item">
+					  <option value="${item.attributeDetailsId}" <c:if test="${item.attributeDetailsId==stayRegister.isBillID}">selected="selected"</c:if>>
+							  ${item.attributeDetailsName}
+					  </option>
+				  </c:forEach>
+			  </select>
+		  </div>
+		  <input id="LvKeLeiXingId" type="hidden" name="LvKeLeiXingId" value="${stayRegister.lvKeLeiXingId}">
+		  <input id="currentPage" type="hidden" name="currentPage" value="${pager.pageNo}">
+		  <button  type="submit" class="btn btn-xs btn-success"></li>查询</button>
+	  </form>
     <div class="span12">
     <div class="tabbable" >  <!-- style="border:1px solid red"  -->
       <ul class="nav nav-tabs">
         <li class="active"><a id="oneid" href="#tab1" data-toggle="tab" onclick="javascript:lvKefunction();">散客</a></li>
         <li ><a id="twoid" href="#tab2" data-toggle="tab"  onclick="javascript:teamfunction();">团队</a></li>
       </ul>
-      
+
+
       <div class="tab-content">
+
         <div class="tab-pane active" id="tab1">
-            <label style="float:left;">房间号：</label>
-		    <form action="" method="post" style="width:18%;float: left;">
-			   <input id="txtnameid" name="txtname" class="roomnumberwidth" style="border-radius:0px; border-top-left-radius:4px; border-bottom-left-radius:4px;height:26px;" type="text" placeholder="请输入关键字" value="${txtname}">
-			   <div class="input-append">  
-			      <button onclick="selectfunction()" type="button" class="btn-success" style="margin-left:-4px;height:26px;"><li class="icon-search icon-white"></li>查询</button>
-			   </div>
-		    </form>
-		    <select id="isBillID" style="width:10%;height:27px; float:left;" onchange="selectChange()">
-	            <c:forEach items="${listOne}" var="item">
-		          <option value="${item.attributeID}" <c:if test="${item.attributeID==isBillID}">selected="selected"</c:if>>
-		            ${item.attributeDetailsName}
-		          </option>
-		        </c:forEach> 
-		    </select>
 		    <div class="span1" style="margin-right: 4px;">
 		      <button class="btn btn-info btn-small" type="button" onclick="registerfunction()"><li class="icon-plus icon-white"></li>登记</button>
 		    </div>
@@ -131,25 +140,11 @@
 
          <div class="span12" style="margin-left:0px;">
           <div class="row-fluid">
-            <label style="float:left;">房间号：</label>
-		    <form action="" method="post" style="width:16%; float: left;">
-			   <input id="roomNumberId" class="roomnumberwidth" style="border-radius:0px; border-top-left-radius:4px; border-bottom-left-radius:4px;height:26px;" type="text" placeholder="请输入关键字" value="${txtname}">
-			   <div class="input-append">  
-			      <button onclick="teamSelect()" type="button" class="btn-success" style="margin-left:-4px;height:26px;"><li class="icon-search icon-white"></li>查询</button>
-			   </div>
-		    </form>
-		    <select id="teamIsBillId" style="width:8%;height:27px; float:left; margin-right:5px;" onchange="teamSelect()">
-	            <c:forEach items="${listOne}" var="item">
-		          <option value="${item.attributeID}" <c:if test="${item.attributeID==isBillID}">selected="selected"</c:if>>
-		            ${item.attributeDetailsName}
-		          </option>
-		        </c:forEach> 
-		    </select>
+
             <a href="#duixiang" data-toggle="modal" class="btn btn-info btn-small" onclick="selectTarget()"><li class="icon-plus icon-white"></li>选择对象</a>
 		    <button class="btn btn-info btn-small" type="button" onclick="teamRegisterfunction()"><li class="icon-plus icon-white"></li>登记</button>
 		    <button class="btn btn-info btn-small" type="button" onclick="teamArrangefunction()"><li class="icon-plus icon-white"></li>安排房间</button>
 		    <button class="btn btn-info btn-small" type="button" onclick="volumeroomfunction()"><li class="icon-plus icon-white"></li>批量安排房间</button>
-
             <button class="btn btn-info btn-small" type="button" onclick="teamDepositfunction()"><li class="icon-eye-open icon-white"></li>押金记录</button>
             <button class="btn btn-info btn-small" type="button" onclick="teamConsumptionfunction()"><li class="icon-gift icon-white"></li>旅客消费</button>
 
@@ -181,7 +176,7 @@
 	        </tr>
 	      </thead>
 	      <tbody id="tbody">
-	        <c:forEach items="${list}" var="item">
+	        <c:forEach items="${pager.datas}" var="item">
 		        <c:if test="${item.remind==1}">
 			        <tr style="color: red;">
 			          <td><input type="checkbox" name="id" value="${item.stayRegisterId}"></td>
@@ -208,7 +203,6 @@
 						<td><fmt:formatDate value="${item.changRoomTime}" pattern="yyyy-MM-dd"/> </td>
 						<td>
 							<c:if test="${item.isBillID!=69}">
-
 								<button class="btn btn-info btn-small" type="button" onclick="teampayfunction()"><li class="icon-heart icon-white"></li>结账</button>
 							</c:if>
 						</td>
@@ -356,25 +350,21 @@
     </div>
   </div>
   <script >
-      if(${LvKeLeiXingId==55}){
+      if(${stayRegister.lvKeLeiXingId==55}){
           $('#oneid').tab('show');
-      }else if(${LvKeLeiXingId==56}){
+      }else if(${stayRegister.lvKeLeiXingId==56}){
           $('#twoid').tab('show');
       }
 
           /* 分页要用的 */
-          <%--$(".tcdPageCode").createPage({--%>
-              <%--pageCount:${list.totalPage},--%>
-              <%--current:${list.currentPage},--%>
-              <%--backFn:function(p){--%>
-                  <%--var isBillID=document.getElementById("isBillID").value;--%>
-                  <%--var txtname=document.getElementById("txtnameid").value;--%>
-                  <%--var LvKeLeiXingId=document.getElementById("LvKeLeiXingId").value;--%>
-                  <%--location.href="${ctx}/StayRegister/tolist.do?currentPage="+p+"&txtname="+txtname+--%>
-                      <%--"&isBillID="+isBillID+"&LvKeLeiXingId="+LvKeLeiXingId;--%>
-              <%--}--%>
-          <%--});--%>
-
+          $(".tcdPageCode").createPage({
+              pageCount:${pager.totalPage},
+              current:${pager.pageNo},
+              backFn:function(p){
+                  document.getElementById("currentPage").value=p;
+                  $("#formList").submit();
+              }
+          });
 
       $('#duixiang').modal().css({
           'width': '72%',

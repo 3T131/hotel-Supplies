@@ -400,8 +400,9 @@ $(document).ready(function() {
 
     function selectChange() {
         var isBillID = document.getElementById("isBillID").value;
-        parent.document.getElementById("Mainid").src = '${ctx}/StayRegister/tolist.do?isBillID=' + isBillID +
-            '&LvKeLeiXingId=' + 55;
+        var LvKeLeiXingId = document.getElementById("LvKeLeiXingId").value;
+        parent.document.getElementById("Mainid").src = getRootPath()+'/StayRegister/tolist.do?isBillID=' + isBillID +
+            '&LvKeLeiXingId=' + LvKeLeiXingId;
     }
 
 
@@ -430,10 +431,12 @@ $(document).ready(function() {
 
 
     teamfunction = function () {
-        parent.document.getElementById("Mainid").src = path+'/StayRegister/tolist.do?LvKeLeiXingId=' + 56;
+        var isBillID = document.getElementById("isBillID").value;
+        parent.document.getElementById("Mainid").src = path+'/StayRegister/tolist.do?LvKeLeiXingId=' + 56+'&isBillID='+isBillID;
     };
     lvKefunction = function () {
-        parent.document.getElementById("Mainid").src = path+'/StayRegister/tolist.do?LvKeLeiXingId=' + 55;
+        var isBillID = document.getElementById("isBillID").value;
+        parent.document.getElementById("Mainid").src = path+'/StayRegister/tolist.do?LvKeLeiXingId=' + 55+'&isBillID='+isBillID;
     };
 
 
