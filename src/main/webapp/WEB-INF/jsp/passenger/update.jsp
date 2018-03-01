@@ -167,7 +167,7 @@
     
     <form action="${ctx}/Passenger/update.do" method="post" onsubmit="return verify()">
     <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
-	    <input type="hidden" name="id" value="${list.papersID}" />
+	    <input type="hidden" name="pId" value="${list.pId}" />
 	    <div class="span12">
 	      <div class="row-fluid">
 		     <div class="span3">
@@ -182,7 +182,7 @@
 		        <label>性别：</label>
 		        <select name="genderID" style="width:100%;height:26px;">
 		            <c:forEach items="${listGender}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==list.genderID}">selected="selected"</c:if>>
+			          <option value="${item.attributeDetailsId}" <c:if test="${item.attributeDetailsId==list.genderID}">selected="selected"</c:if>>
 			            ${item.attributeDetailsName}
 			          </option>
 			        </c:forEach> 
@@ -196,7 +196,7 @@
 		        <label>民族：</label>
 		         <select name="nationID" style="width:100%;height:26px;">
 		            <c:forEach items="${listNation}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==list.nationID}">selected="selected"</c:if>>
+			          <option value="${item.attributeDetailsId}" <c:if test="${item.attributeDetailsId==list.nationID}">selected="selected"</c:if>>
 			            ${item.attributeDetailsName}
 			          </option>
 			        </c:forEach> 
@@ -207,28 +207,11 @@
 	    <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
 	    <div class="span12">
 	      <div class="row-fluid">
-		     <div class="span3">
-		        <label>发证机关：</label>
-		        <input name="licenceIssuingAuthorty" type="text" style="width:100%;height:26px;" value="${list.licenceIssuingAuthorty}"> 
-		     </div>
+
 		     <div class="span3">
 		        <label>证件有效期：</label>
-		        <input name="papersValidity" type="text" style="width:100%;height:26px;" placeholder="年-月-日 至 年-月-日" value="${list.papersValidity}"> 
+		        <input name="papersValidity" type="text" style="width:100%;height:26px;" placeholder="年-月-日 至 年-月-日" value="${list.papersValidity}">
 		      </div>
-		     <div class="span3">
-		        <label>职业：</label>
-		        <input name="profession" type="text" style="width:100%;height:26px;" value="${list.profession}">
-		     </div>
-		     <div class="span3">
-		        <label>文化程度：</label>
-		         <select name="educationDegreeID" style="width:100%;height:26px;">
-		            <c:forEach items="${listEducationDegree}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==list.educationDegreeID}">selected="selected"</c:if>>
-			            ${item.attributeDetailsName}
-			          </option>
-			        </c:forEach> 
-		          </select>
-		     </div>
 		  </div>
 	    </div>
 	    <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
@@ -238,17 +221,17 @@
 		        <label>旅客级别：</label>
 		         <select name="passengerLevelID" style="width:100%;height:26px;">
 		            <c:forEach items="${listPassengerLevel}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==list.passengerLevelID}">selected="selected"</c:if>>
+			          <option value="${item.attributeDetailsId}" <c:if test="${item.attributeDetailsId==list.passengerLevelID}">selected="selected"</c:if>>
 			            ${item.attributeDetailsName}
 			          </option>
-			        </c:forEach> 
+			        </c:forEach>
 		          </select>
 		     </div>
 		     <div class="span3">
 		        <label>证件类型：</label>
 		        <select id="papersId" name="papersID" style="width:100%;height:26px;">
 		            <c:forEach items="${listPapers}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==list.papersID}">selected="selected"</c:if>>
+			          <option value="${item.attributeDetailsId}" <c:if test="${item.attributeDetailsId==list.papersID}">selected="selected"</c:if>>
 			            ${item.attributeDetailsName}
 			          </option>
 			        </c:forEach> 
@@ -263,38 +246,16 @@
 			         <label class="yansered" style="margin-top:7px;">*</label>
 			    </div> 
 		     </div>
-		     <div class="span3">
-		        <label>单位或住址：</label>
-		        <input name="unitsOrAddress" type="text" style="width:100%;height:26px;" value="${list.unitsOrAddress}"> 
-		     </div>
+
 		  </div>
 	    </div>
 	   <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
 	    <div class="span12">
 	      <div class="row-fluid">
 		     <div class="span3">
-		        <label>事由：</label>
-		        <select name="thingReasonID" style="width:100%;height:26px;">
-		            <c:forEach items="${listThingReason}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==list.thingReasonID}">selected="selected"</c:if>>
-			            ${item.attributeDetailsName}
-			          </option>
-			        </c:forEach> 
-		          </select>
-		        
-		      </div>
-		     <div class="span3">
-		        <label>从何处来：</label>
-		       <input name="whereAreFrom" type="text" style="width:100%;height:26px;" value="${list.whereAreFrom}"> 
-		     </div>
-		     <div class="span3">
-		        <label>到哪里去：</label>
-		         <input name="whereToGo" type="text" style="width:100%;height:26px;" value="${list.whereToGo}"> 
-		     </div>
-		     <div class="span3">
 		        <label>联系电话：</label>
-		         <input id="contactPhoneNumberId" name="contactPhoneNumber" type="text" value="${list.contactPhoneNumber}"
-		         style="width:100%;height:26px;"  placeholder="只能为手机号码" onblur="onchangeOne()"> 
+		         <input id="contactPhoneNumberId" name="phoneNumber" type="text" value="${list.phoneNumber}"
+		         style="width:100%;height:26px;"  placeholder="只能为手机号码" onblur="onchangeOne()">
 		     </div>
 		  </div>
 	    </div>

@@ -11,7 +11,7 @@ function getRootPath(){
 }
 
 function addfunction(){
-    parent.document.getElementById('Mainid').src='${ctx}/Passenger/toadd.do';
+    parent.document.getElementById('Mainid').src=getRootPath()+'/Passenger/toadd.do';
 }
 
 function updatefunction(){
@@ -23,7 +23,7 @@ function updatefunction(){
         if(chk_value.toString().indexOf(",")>0){
             alert("修改只能选择一条");
         }else{
-            parent.document.getElementById("Mainid").src='${ctx}/Passenger/toupdate.do?id='+chk_value;
+            parent.document.getElementById("Mainid").src=getRootPath()+'/Passenger/toupdate.do?id='+chk_value;
         }
     }else{
         alert("请选择一条数据进行修改");
@@ -38,7 +38,7 @@ function deletefunction(){
     if(chk_value!=""){
         var flag=window.confirm("注意：您确定要永久删除该信息吗?");
         if(flag){
-            parent.document.getElementById("Mainid").src='${ctx}/Passenger/delete.do?id='+chk_value;
+            parent.document.getElementById("Mainid").src=getRootPath()+'/Passenger/delete.do?id='+chk_value;
         }
     }else{
         alert("请选择一条或多条数据进行删除");

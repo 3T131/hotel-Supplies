@@ -12,7 +12,7 @@ public class Passenger {
     private Integer nationID; //'民族ID',
     private String name; //'姓名',
     private String papersNumber; //'证件号码',
-    private String papersValidity;
+    private String papersValidity;//证件有效期
     private String birthDate; //'出生日期',
     private String phoneNumber; //'联系电话',
     private String remarks; //'备注',

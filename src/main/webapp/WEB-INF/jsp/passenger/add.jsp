@@ -178,7 +178,7 @@
 		        <label>性别：</label>
 		        <select name="genderID" style="width:100%;height:27px;">
 		            <c:forEach items="${listGender}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==31}">selected="selected"</c:if>>
+			          <option value="${item.attributeDetailsId}" <c:if test="${item.attributeDetailsId==31}">selected="selected"</c:if>>
 			            ${item.attributeDetailsName}
 			          </option>
 			        </c:forEach> 
@@ -192,7 +192,7 @@
 		        <label>民族：</label>
 		         <select name="nationID" style="width:100%;height:27px;">
 		            <c:forEach items="${listNation}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==33}">selected="selected"</c:if>>
+			          <option value="${item.attributeDetailsId}" <c:if test="${item.attributeDetailsId==33}">selected="selected"</c:if>>
 			            ${item.attributeDetailsName}
 			          </option>
 			        </c:forEach> 
@@ -203,28 +203,13 @@
 	    <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
 	    <div class="span12">
 	      <div class="row-fluid">
-		     <div class="span3">
-		        <label>发证机关：</label>
-		        <input id="JGID" name="licenceIssuingAuthorty" type="text" style="width:100%;height:27px;"> 
-		     </div>
+
 		     <div class="span3">
 		        <label>证件有效期：</label>
 		        <input id="papersValidityId" name="papersValidity" type="text" style="width:100%;height:27px;"  placeholder="年-月-日 至 年-月-日"> 
 		      </div>
-		     <div class="span3">
-		        <label>职业：</label>
-		        <input id="professionId" name="profession" type="text" style="width:100%;height:27px;">
-		     </div>
-		     <div class="span3">
-		        <label>文化程度：</label>
-		         <select name="educationDegreeID" style="width:100%;height:27px;">
-		            <c:forEach items="${listEducationDegree}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==43}">selected="selected"</c:if>>
-			            ${item.attributeDetailsName}
-			          </option>
-			        </c:forEach> 
-		          </select>
-		     </div>
+
+
 		  </div>
 	    </div>
 	    <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
@@ -234,7 +219,7 @@
 		        <label>旅客级别：</label>
 		         <select name="passengerLevelID" style="width:100%;height:27px;">
 		            <c:forEach items="${listPassengerLevel}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==52}">selected="selected"</c:if>>
+			          <option value="${item.attributeDetailsId}" <c:if test="${item.attributeDetailsId==52}">selected="selected"</c:if>>
 			            ${item.attributeDetailsName}
 			          </option>
 			        </c:forEach> 
@@ -244,7 +229,7 @@
 		        <label>证件类型：</label>
 		        <select id="papersId" name="papersID" style="width:100%;height:27px;">
 		            <c:forEach items="${listPapers}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==37}">selected="selected"</c:if>>
+			          <option value="${item.attributeDetailsId}" <c:if test="${item.attributeDetailsId==37}">selected="selected"</c:if>>
 			            ${item.attributeDetailsName}
 			          </option>
 			        </c:forEach> 
@@ -268,30 +253,8 @@
 	   <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
 	    <div class="span12">
 	      <div class="row-fluid">
-		     <div class="span3">
-		        <label>事由：</label>
-		        <select name="thingReasonID" style="width:100%;height:27px;">
-		            <c:forEach items="${listThingReason}" var="item">
-			          <option value="${item.far_id}" <c:if test="${item.far_id==51}">selected="selected"</c:if>>
-			            ${item.attributeDetailsName}
-			          </option>
-			        </c:forEach> 
-		          </select>
-		        
-		      </div>
-		     <div class="span3">
-		        <label>从何处来：</label>
-		       <input id="whereAreFromId" name="whereAreFrom" type="text" style="width:100%;height:27px;"> 
-		     </div>
-		     <div class="span3">
-		        <label>到哪里去：</label>
-		         <input id="whereToGoId" name="whereToGo" type="text" style="width:100%;height:27px;"> 
-		     </div>
-		     <div class="span3">
-		        <label>联系电话：</label>
-		         <input id="contactPhoneNumberId" name="contactPhoneNumber" type="text" 
-		         style="width:100%;height:27px;"  placeholder="只能为手机号码" onchange="onchangeOne()"> 
-		     </div>
+
+
 		  </div>
 	    </div>
 	    <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->

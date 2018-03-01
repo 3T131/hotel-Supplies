@@ -17,12 +17,20 @@ public class PassengerBizImpl implements PassengerBiz {
         return passengerDao.list(name);
     }
 
-    public int delete(String[] passengerId) {
-        return passengerDao.delete(passengerId);
+    public int delete(String[] pId) {
+        return passengerDao.delete(pId);
     }
 
-    public Passenger queryPassengerId(int passengerId) {
-        return passengerDao.queryPassengerId(passengerId);
+    public Passenger queryPassengerId(int pId) {
+        return passengerDao.queryPassengerId(pId);
+    }
+
+    public Integer update(Passenger passenger) {
+        return passengerDao.update(passenger);
+    }
+
+    public int add(Passenger passenger) {
+        return passengerDao.add(passenger);
     }
 
 

@@ -85,7 +85,7 @@
     <div class="span6">
       <div class="row-fluid">
        <div class="span3">
-         <button class="btn btn-info btn-small textone" type="button" onclick="location='/Passenger/toadd.do'"><li class="icon-plus icon-white"></li>新增</button>
+         <button class="btn btn-info btn-small textone" type="button" onclick="addfunction()"><li class="icon-plus icon-white"></li>新增</button>
        </div>
        <div class="span3">
          <button class="btn btn-warning btn-small textone" type="button" onclick="updatefunction()"><li class="icon-pencil icon-white"></li>修改</button>
@@ -114,7 +114,7 @@
 	      <tbody id="tbody">
 	        <c:forEach items="${list}" var="item">
 		        <tr>
-		          <td><input type="checkbox" name="id" value="${item.passengerId}"></td>
+		          <td><input type="checkbox" name="id" value="${item.pId}"></td>
 		          <td>${item.name}</td>
 		          <td>${item.genderName}</td>
 		          <td>${item.birthDate}</td>
@@ -122,7 +122,6 @@
 		          <td>${item.passengerLevelName}</td>
 		          <td>${item.papersName}</td>
 		          <td>${item.papersNumber}</td>
-		          <td>${item.contactPhoneNumber}</td>
 		        </tr>
 	        </c:forEach>
 	      </tbody>
