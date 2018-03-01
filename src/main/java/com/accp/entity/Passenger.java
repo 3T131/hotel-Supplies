@@ -12,6 +12,7 @@ public class Passenger {
     private Integer nationID; //'民族ID',
     private String name; //'姓名',
     private String papersNumber; //'证件号码',
+    private String papersValidity;
     private String birthDate; //'出生日期',
     private String phoneNumber; //'联系电话',
     private String remarks; //'备注',
@@ -22,6 +23,13 @@ public class Passenger {
     private String passengerLevelName;//'旅客级别
     private String papersName;////'证件',
 
+    public String getPapersValidity() {
+        return papersValidity;
+    }
+
+    public void setPapersValidity(String papersValidity) {
+        this.papersValidity = papersValidity;
+    }
 
     public Integer getpId() {
         return pId;
