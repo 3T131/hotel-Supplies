@@ -74,8 +74,9 @@
     <div class="span5">
 	    <div class="row-fluid">
 		    <label class="labelroomnumber">旅客名称：</label>
-		    <form action="${ctx}/Passenger/tolist.do" method="post" style="float: left;">
-			   <input id="txtnameid" name="name" class="textone roomnumberwidth" style="border-radius:0px; border-top-left-radius:4px; border-bottom-left-radius:4px;height:26px;" type="text" placeholder="请输入关键字" value="${name}">
+		    <form id="form22" action="${ctx}/Passenger/tolist.do" method="post" style="float: left;">
+				<input id="currentPage" type="hidden" name="currentPage" value="${pager.pageNo}">
+			   <input id="txtnameid" name="name" class="textone roomnumberwidth" style="border-radius:0px; border-top-left-radius:4px; border-bottom-left-radius:4px;height:26px;" type="text" placeholder="请输入关键字" value="${passenger.name}">
 			   <div class="input-append">  
 			      <button type="submit" class="btn-success textone" style="margin-left:-4px;height:26px;"><li class="icon-search icon-white"></li>搜索</button>
 			   </div>
@@ -112,7 +113,7 @@
 	        </tr>
 	      </thead>
 	      <tbody id="tbody">
-	        <c:forEach items="${list}" var="item">
+	        <c:forEach items="${pager.datas}" var="item">
 		        <tr>
 		          <td><input type="checkbox" name="id" value="${item.pId}"></td>
 		          <td>${item.name}</td>
@@ -121,7 +122,8 @@
 		          <td>${item.nationName}</td>
 		          <td>${item.passengerLevelName}</td>
 		          <td>${item.papersName}</td>
-		          <td>${item.papersNumber}</td>
+					<td>${item.papersNumber}</td>
+					<td>${item.phoneNumber}</td>
 		        </tr>
 	        </c:forEach>
 	      </tbody>
@@ -141,15 +143,17 @@
  
  <script type="text/javascript">
   /* 分页要用的 */
-  <%--$(".tcdPageCode").createPage({--%>
-     <%--pageCount:${list.totalPage},--%>
-     <%--current:${list.currentPage},--%>
-     <%--backFn:function(p){--%>
-     <%--var txtname=document.getElementById("txtnameid").value;--%>
-     <%--location.href="${ctx}/Passenger/tolist.do?currentPage="+p+"&txtname="+txtname;--%>
-     <%--}--%>
-   <%--});--%>
-  
+  $(".tcdPageCode").createPage({
+     pageCount:${pager.totalPage},
+     current:${pager.pageNo},
+     backFn:function(p){
+         var c = document.getElementById("currentPage");
+         c.value=p;
+       var f = document.getElementById("form22");
+	   f.submit();
+     }
+   });
+
  </script>
    
   </body>

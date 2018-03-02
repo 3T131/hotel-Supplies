@@ -41,22 +41,23 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
     <!--定义声明事务规则-->
-    <!--<tx:advice id="txAdvice"  transaction-manager="txManager">-->
-        <!--<tx:attributes>-->
-            <!--<tx:method name="add*" />-->
-            <!--<tx:method name="delete**" />-->
-            <!--<tx:method name="modify*" />-->
-            <!--<tx:method name="remove*" />-->
-            <!--<tx:method name="list*" propagation="NOT_SUPPORTED"/>-->
-            <!--<tx:method name="get*" propagation="NOT_SUPPORTED"/>-->
-        <!--</tx:attributes>-->
-    <!--</tx:advice>-->
-    <!--&lt;!&ndash;定义切面&ndash;&gt;-->
-    <!--<aop:config>-->
-        <!--<aop:pointcut id="bizMethod" expression="execution(* com.accp.biz.*.*(..))"/>-->
-        <!--&lt;!&ndash;将事务增强与切入点组合&ndash;&gt;-->
-        <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="bizMethod"/>-->
-    <!--</aop:config>-->
+
+    <tx:advice id="txAdvice"  transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="add*" />
+            <tx:method name="delete**" />
+            <tx:method name="modify*" />
+            <tx:method name="remove*" />
+            <tx:method name="list*" propagation="NOT_SUPPORTED"/>
+            <tx:method name="get*" propagation="NOT_SUPPORTED"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--定义切面-->
+    <aop:config>
+        <aop:pointcut id="bizMethod" expression="execution(* com.accp.biz.*.*(..))"/>
+        <!--将事务增强与切入点组合-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="bizMethod"/>
+    </aop:config>
 
 
 </beans>

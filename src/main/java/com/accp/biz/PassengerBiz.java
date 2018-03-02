@@ -1,26 +1,31 @@
 package com.accp.biz;
 
 import com.accp.entity.AttributeDetails;
+import com.accp.entity.Pager;
 import com.accp.entity.Passenger;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface PassengerBiz {
-    /*
-    * 查询所有的旅客
-    * */
-    List<Passenger> list(String name);
 
-    /*
-       * 删除旅客
-       * */
+
+
+    /**
+     *  删除旅客
+     * @param pId
+     * @return
+     */
     int delete(String[] pId);
 
-    /*
-    * 查询要修改的旅客
-    * */
+
+    /**
+     * 根据ID查询旅客
+     * @param pId
+     * @return
+     */
     Passenger queryPassengerId(@Param("pId") int pId);
+
     /**
      * 修改旅客
      * @param passenger
@@ -33,4 +38,10 @@ public interface PassengerBiz {
      * @return
      */
     int add(Passenger passenger);
+
+    /**
+     * 分页查询$$模糊查询
+     * @param pager
+     */
+    void listPage(Pager<Passenger> pager);
 }

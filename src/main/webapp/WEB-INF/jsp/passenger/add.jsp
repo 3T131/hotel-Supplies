@@ -206,12 +206,12 @@
 
 		     <div class="span3">
 		        <label>证件有效期：</label>
-		        <input id="papersValidityId" name="papersValidity" type="text" style="width:100%;height:27px;"  placeholder="年-月-日 至 年-月-日"> 
+		        <input id="papersValidityId" name="papersValidity" type="text" style="width:100%;height:27px;"  placeholder="年-月-日 至 年-月-日">
+
 		      </div>
-
-
 		  </div>
 	    </div>
+
 	    <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
 	     <div class="span12">
 	      <div class="row-fluid">
@@ -244,19 +244,15 @@
 			         <label class="yansered" style="margin-top:7px;">*</label>
 			    </div> 
 		     </div>
-		     <div class="span3">
-		        <label>单位或住址：</label>
-		        <input id="unitsOrAddressId" name="unitsOrAddress" type="text" style="width:100%;height:27px;"> 
-		     </div>
 		  </div>
 	    </div>
 	   <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
-	    <div class="span12">
-	      <div class="row-fluid">
-
-
-		  </div>
-	    </div>
+		<div class="span3">
+			<label>联系电话：</label>
+			<input id="contactPhoneNumberId" name="contactPhoneNumber" type="text"
+				   style="width:100%;height:27px;"  placeholder="只能为手机号码" onchange="onchangeOne()">
+		</div>
+	</div>
 	    <!--  ———————————————————————————————————————————————————————————————————————————————————————— -->
 	    <div class="span12">
 	      <label style="float: left;">备注：</label>
